@@ -1,0 +1,68 @@
+:root{--bg1:#ffd9e6;--bg2:#ffb3cf;--ink:#7a1038;--card:#fff8fb;--accent:#e0245e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--bg1),var(--bg2)) fixed;color:var(--ink);font-family:'Quicksand',system-ui,sans-serif;overflow-x:hidden;text-align:center}
+section{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;position:relative}
+
+/* tim / hoa rơi */
+.fall{position:fixed;top:-30px;pointer-events:none;animation:fall linear forwards;z-index:0}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.2}}
+
+/* trái tim đập */
+.heartwrap{position:relative;width:min(86vw,360px);aspect-ratio:1;animation:beat 1.3s infinite;z-index:1}
+.heartwrap svg{width:100%;height:100%;filter:drop-shadow(0 12px 24px rgba(224,36,94,.45))}
+.heartwrap .txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding-bottom:8%;text-shadow:0 2px 6px rgba(120,0,40,.4)}
+.txt b{font-family:'Dancing Script',cursive;font-size:clamp(28px,9vw,46px);line-height:1.05}
+.txt span{font-size:clamp(18px,6vw,28px);font-weight:700;margin-top:6px}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.1)}30%{transform:scale(1)}45%{transform:scale(1.07)}}
+
+h1{font-family:'Dancing Script',cursive;font-size:clamp(26px,7vw,40px);margin:26px 0 6px;z-index:1}
+p.sub{max-width:420px;margin:0 0 22px;line-height:1.6;z-index:1}
+button.go{background:var(--accent);color:#fff;border:0;border-radius:999px;padding:12px 26px;font:700 16px 'Quicksand',sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(224,36,94,.4);z-index:1}
+button.go:active{transform:scale(.96)}
+
+#s2{opacity:0;transform:translateY(40px);transition:all 1s}
+#s2.show{opacity:1;transform:none}
+
+/* bó hoa (kích thước theo chiều rộng khung: cqw) */
+.bq{container-type:inline-size;position:relative;width:min(94vw,400px);aspect-ratio:4/5;margin-top:8px}
+.bq svg.st{position:absolute;inset:0;width:100%;height:100%}
+
+.fl{position:absolute;width:38cqw;height:38cqw;transform:translate(-50%,-50%);cursor:pointer;z-index:1}
+.fl.sway{animation:sway 4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes sway{50%{transform:translate(-50%,-50%) rotate(4deg)}}
+
+/* cánh ngoài + cánh trong */
+.pt{position:absolute;left:50%;bottom:50%;width:12cqw;height:17cqw;margin-left:-6cqw;border-radius:50% 50% 45% 45%;transform-origin:50% 100%;
+  transform:rotate(var(--r)) scale(.2);
+  background:radial-gradient(circle at 50% 85%,var(--p1),var(--p2));
+  box-shadow:inset 0 -2px 6px rgba(0,0,0,.1);
+  transition:transform 1.4s cubic-bezier(.3,1.5,.5,1);transition-delay:var(--dd)}
+.pt.in{width:9cqw;height:12cqw;margin-left:-4.5cqw;background:radial-gradient(circle at 50% 85%,var(--p2),var(--p1));filter:brightness(1.05)}
+.bloom .pt{transform:rotate(var(--r)) scale(1)}
+
+/* ảnh ở giữa bông hoa */
+.ph{position:absolute;left:50%;top:50%;width:17cqw;height:17cqw;margin:-8.5cqw 0 0 -8.5cqw;border-radius:50%;
+  border:.8cqw solid #fff;background:linear-gradient(135deg,#ffe29a,#ff9ec0) center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;font-size:7cqw;
+  transform:scale(0);transition:transform 1s cubic-bezier(.3,1.6,.5,1);transition-delay:calc(var(--d) + 1s);
+  box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.bloom .ph{transform:scale(1)}
+
+/* giấy gói + thiệp */
+.wrap{position:absolute;left:50%;bottom:0;width:60cqw;height:34cqw;transform:translateX(-50%);background:linear-gradient(160deg,#ffd27a,#f0a64a);clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);z-index:2}
+.wrap2{position:absolute;left:50%;bottom:0;width:54cqw;height:30cqw;transform:translateX(-50%);background:linear-gradient(160deg,#ff8fb5,#e0245e);clip-path:polygon(0 8%,100% 0,78% 100%,22% 100%);z-index:3}
+.bow{position:absolute;left:50%;bottom:24cqw;font-size:11cqw;transform:translateX(-50%);z-index:4}
+.card{position:absolute;left:50%;bottom:3cqw;width:25cqw;height:18cqw;transform:translateX(-50%) rotate(-5deg);background:var(--card);border-radius:6px;z-index:5;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#b3123f;font:700 3.1cqw 'Quicksand',sans-serif;animation:wob 2s infinite;border:0}
+.card i{font-style:normal;font-size:8cqw}
+@keyframes wob{50%{transform:translateX(-50%) rotate(5deg) scale(1.06)}}
+.tip{margin:14px 0 0;font-size:15px;min-height:22px;z-index:1}
+
+/* popup thiệp + ảnh lớn */
+.modal{position:fixed;inset:0;background:rgba(60,0,25,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal.on{display:flex}
+.letter{background:var(--card);color:#7a1038;max-width:420px;width:100%;border-radius:18px;padding:28px 24px;box-shadow:0 20px 50px rgba(0,0,0,.4);animation:pop .5s}
+@keyframes pop{from{transform:scale(.4) rotate(-6deg);opacity:0}}
+.letter h2{font-family:'Dancing Script',cursive;font-size:32px;margin:0 0 10px;color:#e0245e}
+.letter p{font-size:17px;line-height:1.7;min-height:170px;margin:0 0 14px;white-space:pre-wrap;text-align:left}
+#lightbox img{max-width:100%;max-height:90vh;border-radius:14px;border:6px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:pop .4s}

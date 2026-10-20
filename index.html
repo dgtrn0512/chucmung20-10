@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chúc mừng 20/10 – Vợ yêu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;700&display=swap&subset=vietnamese" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MÀN HÌNH 1: TRÁI TIM -->
+<section id="s1">
+  <div class="heartwrap">
+    <svg viewBox="0 0 100 92">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6f9c"/><stop offset="1" stop-color="#d4144f"/></linearGradient></defs>
+      <path fill="url(#g)" d="M50 90C20 66 2 50 2 28 2 14 13 4 26 4c10 0 19 6 24 15C55 10 64 4 74 4c13 0 24 10 24 24 0 22-18 38-48 62z"/>
+    </svg>
+    <div class="txt"><b>Chúc vợ yêu</b><span>20/10 vui vẻ</span></div>
+  </div>
+  <h1>Luôn xinh đẹp, hạnh phúc &amp; khoẻ mạnh 💖</h1>
+  <p class="sub">Anh có một món quà nhỏ dành riêng cho em, mở ra xem nhé!</p>
+  <button class="go" id="open">🎁 Nhận quà</button>
+</section>
+
+<!-- MÀN HÌNH 2: BÓ HOA -->
+<section id="s2">
+  <h1 style="margin-top:0">Bó hoa dành tặng em 💐</h1>
+  <div class="bq" id="bq"></div>
+  <p class="tip" id="tip">👇 Bấm vào tấm thiệp nhé</p>
+</section>
+
+<!-- THIỆP -->
+<div class="modal" id="modal">
+  <div class="letter">
+    <h2>Gửi vợ yêu của anh 💌</h2>
+    <p id="msg"></p>
+    <button class="go" id="close">Đóng thiệp &amp; xem hoa nở 🌸</button>
+  </div>
+</div>
+
+<!-- XEM ẢNH LỚN -->
+<div class="modal" id="lightbox"><img id="lbimg" alt="Ảnh kỷ niệm"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
